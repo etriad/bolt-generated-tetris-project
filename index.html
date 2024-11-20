@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Candy Tetris</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: linear-gradient(135deg, #FFB6C1, #FFD1DC);
+      color: #FF4D8B;
+      font-family: 'Fredoka One', cursive;
+    }
+
+    #game-container {
+      display: flex;
+      gap: 30px;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 20px;
+      box-shadow: 
+        0 0 20px rgba(255, 182, 193, 0.5),
+        0 0 40px rgba(255, 182, 193, 0.3);
+    }
+
+    canvas {
+      border: 4px solid #FF69B4;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(255, 105, 180, 0.3);
+      position: relative;
+    }
+
+    #info {
+      background: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      border-radius: 15px;
+      border: 2px dashed #FF69B4;
+    }
+
+    #score, #high-score {
+      font-size: 2em;
+      margin-bottom: 0.5em;
+      color: #FF1493;
+      text-shadow: 2px 2px 0px #FFB6C1;
+    }
+
+    .control-info {
+      margin: 8px 0;
+      color: #FF69B4;
+      font-size: 1.2em;
+    }
+
+    #title {
+      position: absolute;
+      top: 20px;
+      font-size: 3em;
+      color: #FF1493;
+      text-shadow: 
+        3px 3px 0 #FFB6C1,
+        -3px -3px 0 #FFB6C1,
+        3px -3px 0 #FFB6C1,
+        -3px 3px 0 #FFB6C1;
+    }
+
+    #game-over {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(255, 255, 255, 0.95);
+      padding: 20px 40px;
+      border-radius: 15px;
+      text-align: center;
+      border: 4px solid #FF69B4;
+      box-shadow: 0 0 20px rgba(255, 105, 180, 0.5);
+      display: none;
+    }
+
+    #play-again {
+      background: #FF69B4;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 25px;
+      color: white;
+      font-family: 'Fredoka One', cursive;
+      font-size: 1.2em;
+      cursor: pointer;
+      transition: transform 0.2s, background-color 0.2s;
+      margin-top: 15px;
+    }
+
+    #play-again:hover {
+      background: #FF1493;
+      transform: scale(1.05);
+    }
+
+    #canvas-container {
+      position: relative;
+    }
+  </style>
+</head>
+<body>
+  <div id="title">🍬 Candy Tetris 🍭</div>
+  <div id="game-container">
+    <div id="canvas-container">
+      <canvas id="tetris"></canvas>
+      <div id="game-over">
+        <h2>Game Over!</h2>
+        <button id="play-again">Play Again?</button>
+      </div>
+    </div>
+    <div id="info">
+      <div id="score">Score: 0</div>
+      <div id="high-score">Best: 0</div>
+      <div class="control-info">🎮 Controls:</div>
+      <div class="control-info">← → : Move</div>
+      <div class="control-info">↑ : Rotate</div>
+      <div class="control-info">↓ : Drop</div>
+      <div class="control-info">Space : Hard drop</div>
+    </div>
+  </div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
